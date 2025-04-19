@@ -6,9 +6,21 @@ const cors=require('cors');
 require('dotenv').config();
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
+const allowedOrigins = [
+  'http://localhost:5173',         // For local frontend
+  'https://cardiq-sooty.vercel.app'  // Your deployed frontend
+];
+
 app.use(cors({
-  origin: "http://localhost:5173"
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
 }));
 // Connect to MongoDB
 connectDB();

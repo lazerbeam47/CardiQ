@@ -1,7 +1,7 @@
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const Flashcard = require("../models/Flashcard");
 
-const GEMINI_API_KEY = "AIzaSyCLhhB7dfB4-JqP-812Qy3FYVKsY4t1W44";
+const GEMINI_API_KEY= new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-lite" });
 const multer = require('multer');

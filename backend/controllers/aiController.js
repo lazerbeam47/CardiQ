@@ -1,6 +1,6 @@
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const Flashcard = require("../models/Flashcard");
-
+require('dotenv').config(); // Ensure environment variables are loaded before any other code
 const GEMINI_API_KEY= new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-lite" });

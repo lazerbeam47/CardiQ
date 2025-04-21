@@ -63,5 +63,3 @@ module.exports = { generateFlashcards };
 
 
 
-//api key - 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
-//gemini api key - AIzaSyCLhhB7dfB4-JqP-812Qy3FYVKsY4t1W44
